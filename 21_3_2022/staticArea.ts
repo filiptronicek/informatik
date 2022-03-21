@@ -14,3 +14,4 @@ if (Number.isNaN(parseInt(a.toString())) || a < 0 || Number.isNaN(parseInt(b.toS
 }
 
 console.log(`Obsah obdelníka se stranami a=${a}cm, b=${b}cm je ${getArea(a, b)} cm²`);
+
