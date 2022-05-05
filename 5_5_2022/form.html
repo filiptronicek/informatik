@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulář</title>
+</head>
+<body>
+    <form id="gaming">
+        <label>
+            Kolik má pavouk nohou?
+            <input type="number" min="0" id="legz">
+        </label>
+        <br />
+        <button type="submit">Odeslat</button>
+    </form>
+    <span id="output"></span>
+</body>
+
+<script defer>
+    const input = document.getElementById('legz');
+    const form = document.getElementById('gaming');
+    const output = document.getElementById('output');
+
+    form.onsubmit = (e) => {
+        e.preventDefault();
+        const enteredValue = input.value;
+        if (Number.isNaN(parseInt(enteredValue))) {
+            output.innerText = `Hodnota ${enteredValue} není číslem!`;
+        } else if (parseInt(enteredValue) === 8) {
+            output.innerText = 'Správná odpověď!';
+        } else {
+            output.innerText = 'Špatná odpověď :(';
+        }
+    }
+</script>
+
+</html>
