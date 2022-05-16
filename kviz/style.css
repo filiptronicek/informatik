@@ -1,0 +1,7 @@
+input {
+  accent-color: red;
+}
+
+input[type="submit"] {
+  background-color: khaki;
+}
