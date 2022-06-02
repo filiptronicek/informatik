@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Plus&display=swap');
+
+body {
+    background: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gentium Plus', serif;
+}
+
+#tabs {
+    width: min(30em, 80vw);
+    background: brown;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#tabs > ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    padding-top: 1em;
+    background: green;
+}
+
+#tabs > ul > li {
+    cursor: pointer;
+}
