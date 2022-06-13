@@ -8,12 +8,14 @@ const animalDom = {
 const shownImg = document.getElementById('shownImg');
 
 let selected = 'mravenec';
+shownImg.title = animalDom[selected].innerText;
 
 Object.keys(animalDom).forEach((animul) => {
     animalDom[animul].onclick = () => window.open(`assets/${animul}.gif`, '_blank', 'width=300,height=400');
     animalDom[animul].onmouseover = () => {
         shownImg.src = `assets/${animul}.gif`;
         shownImg.setAttribute('alt', animalDom[animul].innerText);
+        shownImg.title = animalDom[animul].innerText;
         selected = animul;
     }
 });
