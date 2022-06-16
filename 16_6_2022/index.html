@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For loopy</title>
+</head>
+<style>
+    table {
+        border: 1px solid black;
+    }
+
+    table > td {
+        padding-right: 0.5em;
+        padding-left: 0.5em;
+        text-align: center;
+        padding-top: 0.3em;
+        padding-bottom: 0.3em;
+    }
+
+    ;
+</style>
+
+<body>
+    <table border="1">
+        <tr>
+
+        </tr>
+    </table>
+</body>
+<script>
+    const table = document.querySelector("table");
+    for (let i = 1; i <= 1000; i++) {
+        const child = document.createElement('td');
+        child.innerText = i;
+        table.appendChild(child);
+
+        if (i % 10 === 0) {
+            const child = document.createElement('tr');
+            table.appendChild(child);
+        }
+    }
+</script>
+
+</html>
