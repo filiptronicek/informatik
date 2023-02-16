@@ -6,7 +6,7 @@ var input: int64;
 function factorial(n: int64): int64;
 begin
     if n = 0 then
-        factorial := 1
+        factorial := 1;
     else
         factorial := n * factorial(n - 1);
 end;
