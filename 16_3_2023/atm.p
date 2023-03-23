@@ -74,6 +74,7 @@ begin
                     writeln('Thank you for using the ATM');
                 end
                 else
+                if option <> 3 then writeln('Invalid option');
             until (option = 3);
         end
         else
