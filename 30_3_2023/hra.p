@@ -1,7 +1,23 @@
 // Documentation for the GTM Simulator: a game emulating the life of a student in high school
 
 Program GTMSimulator;
-uses crt;
+uses
+  crt, Math;
+
+function SineValue(x: Integer): Integer;
+var
+  A, B, C, D: Double;
+  maxValue, minValue: Integer;
+begin
+  minValue := 13;
+  maxValue := 30;
+  A := (maxValue - minValue) / 2;
+  B := 2 * Pi / 196;
+  C := 0;
+  D := (maxValue + minValue) / 2;
+
+  SineValue := Round(A * sin(B * (x - C)) + D);
+end;
 
 type
   TBoosts = record
@@ -101,11 +117,11 @@ begin
 
     // Day 1:
     DayNow := 1;
-    DaysEnergyLeft := 15;
+    DaysEnergyLeft := 30;
 
     while (DaysEnergyLeft > 0) and (DayNow <= 196) do
     begin
-      DaysEnergyLeft := 15;
+      DaysEnergyLeft := SineValue(DayNow);
       WriteLn('Day ', DayNow, ':');
       WriteLn('Energy left: ', DaysEnergyLeft);
 
