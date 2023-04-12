@@ -92,32 +92,44 @@ begin
       Subjects[i].DisplayData;
     end;
 
-    for i := 1 to 3 do
+    for i := 0 to 2 do
     begin
       WriteLn('Select subject ', i, ' by entering the corresponding number (0-4):');
       ReadLn(Selection);
       SelectedSubjects[i] := Subjects[Selection];
     end;
 
+    // Day 1:
     DayNow := 1;
     DaysEnergyLeft := 15;
 
-    // Day 1:
-    WriteLn('Day ', DayNow, ':');
-    WriteLn('Energy left: ', DaysEnergyLeft);
-
-    // We select how many classes we have today. It can be between 4 and 8.
-    Randomize;
-    ClassesToday := 4 + Random(5);
-
-    // For every class today, select a subject at random. Then subtract the energy cost of the selected subject from the energy left.
-    for i := 1 to ClassesToday do
+    while (DaysEnergyLeft > 0) and (DayNow <= 196) do
     begin
-        CurrentSubject := SelectedSubjects[Random(3)];
-        WriteLn('Class ', i, ': ', CurrentSubject.SubjectName);
-        DaysEnergyLeft := DaysEnergyLeft - CurrentSubject.EnergyCost;
-        WriteLn('Energy left: ', DaysEnergyLeft);
+      DaysEnergyLeft := 15;
+      WriteLn('Day ', DayNow, ':');
+      WriteLn('Energy left: ', DaysEnergyLeft);
+
+      // We select how many classes we have today. It can be between 4 and 8.
+      Randomize;
+      ClassesToday := 4 + Random(5);
+
+      // For every class today, select a subject at random. Then subtract the energy cost of the selected subject from the energy left.
+      for i := 1 to ClassesToday do
+      begin
+          CurrentSubject := SelectedSubjects[Random(3)];
+          WriteLn('Class ', i, ': ', CurrentSubject.SubjectName , ' | Energy cost: ', CurrentSubject.EnergyCost);
+          DaysEnergyLeft := DaysEnergyLeft - CurrentSubject.EnergyCost;
+
+          if (DaysEnergyLeft < 0) then
+            break;
+      end;
+      DayNow := DayNow + 1;
     end;
+
+    if (DaysEnergyLeft <= 0) then
+      WriteLn('You died!')
+    else
+      WriteLn('You survived GTM!');
 
     ReadLn;
 end.
